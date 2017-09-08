@@ -21,4 +21,4 @@ EXPOSE 4000
 # Stratum Ports
 EXPOSE 3032-3199
 
-ENTRYPOINT dotnet MiningCore.dll -c /config/config.json
+ENTRYPOINT dotnet MiningCore.dll -c /config.json
