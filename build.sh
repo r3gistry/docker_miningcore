@@ -2,4 +2,4 @@
 docker build -t coinfoundry/miningcore-docker .
 
 # publish
-docker push coinfoundry/miningcore-docker
+#docker push coinfoundry/miningcore-docker

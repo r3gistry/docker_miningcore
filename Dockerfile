@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:runtime
+FROM microsoft/dotnet:sdk
 MAINTAINER oliver@weichhold.com
 
 # install build-tools
