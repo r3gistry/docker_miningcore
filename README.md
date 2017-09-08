@@ -1,6 +1,6 @@
-## Docker image for MiningCore
+## MiningCore-Docker
 
-Official docker-image for MiningCore
+Official MiningCore docker-image
 
 ### Usage
 
