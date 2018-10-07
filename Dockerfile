@@ -5,7 +5,7 @@ MAINTAINER oliver@weichhold.com
 RUN apt-get update -y && apt-get -y install git cmake build-essential libssl-dev pkg-config libboost-all-dev libsodium-dev
 
 # build
-RUN cd /tmp && git clone https://github.com/coinfoundry/miningcore && cd miningcore/src/MiningCore && \
+RUN cd /tmp && git clone https://github.com/coinfoundry/miningcore && cd miningcore/src/Miningcore && \
     chmod +x ./linux-build.sh && ./linux-build.sh && mkdir /dotnetapp && cp -r ../../build/* /dotnetapp
 
 WORKDIR /dotnetapp
@@ -21,4 +21,4 @@ EXPOSE 4000
 # Stratum Ports
 EXPOSE 3032-3199
 
-ENTRYPOINT dotnet MiningCore.dll -c /config.json
+ENTRYPOINT dotnet Miningcore.dll -c /config.json
