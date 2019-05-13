@@ -1,13 +1,35 @@
-## MiningCore-Docker
+## Miningcore
 
-Official MiningCore docker-image
+### What is it?
 
-### Usage
+Miningcore is contributed by [coinfoundry](https://github.com/coinfoundry/miningcore).
 
-The image expects a valid pool configuration file as volume argument:
+### Example usages
 
-```bash
-$ docker run -d -p 3032:3032 -v /path/to/config.json:/config.json:ro coinfoundry/miningcore-docker
+- To build the image:
+
+```console
+$ docker build YOUR_VERSION/ --tag r3gistry/miningcore:YOUR_VERSION
 ```
 
-As shown in the example above you also need to expose all the stratum ports you've specified in config.json.
+- To run the container in background:
+
+```console
+$ docker run -v miningcore:/mnt/miningcore/ -d --name YOUR_CONTAINER_NAME -p YOUR_PORT_1:YOUR_PORT_1 -p YOUR_PORT_2-YOUR_PORT_4:YOUR_PORT_2-YOUR_PORT_4 r3gistry/miningcore -c /mnt/miningcore/config.json
+```
+
+- To fetch logs of a container:
+
+```console
+$ docker logs YOUR_CONTAINER_NAME
+```
+
+### Donations
+
+If you like to buy us coffee, you can donate to here:
+
+- BTC: `1MTkPFtp3qxE4Y98pTHP3z767RGKmrT92a`
+- ETH: `0x5896a85E8c175c563DC00087535582394d394838`
+- XMR: `4ASikgNhKqmY5EjnaoDws1jjyhQy9ZrcDcCwfYVt5Rtxb6B1FqsehpLY8ZxxZD5B6r8QZKb4y1FKW1eqiS5Lph77Ca9qprU`
+- ETC: `0xFaBA3be3b3De5469C3F6C6185150928F3773C7b4`
+- ZEC: `t1Z5Kc75JQ17txyaDUfwwyabTgsJMfuuSp4`
