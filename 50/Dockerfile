@@ -3,13 +3,13 @@ FROM mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
 WORKDIR /tmp/
 
 ADD \
-https://github.com/coinfoundry/miningcore/archive/v46.tar.gz \
+https://github.com/coinfoundry/miningcore/archive/v50.tar.gz \
 .
 
 RUN \
 apk add --no-cache build-base cmake boost-dev libsodium-dev libzmq openssl-dev pkgconfig \
-&& tar -xvf v46.tar.gz \
-&& cd miningcore-46/src/Miningcore/ \
+&& tar -xvf v50.tar.gz \
+&& cd miningcore-50/src/Miningcore/ \
 && dotnet publish -c Release --framework netcoreapp2.2 -o ../../build/ \
 && mkdir /usr/local/miningcore/ \
 && mv ../../build/* /usr/local/miningcore/ \
