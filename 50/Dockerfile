@@ -27,7 +27,7 @@ COPY --from=0 /usr/local/miningcore/ /usr/local/miningcore/
 RUN \
 apk add --no-cache boost-date_time boost-system openssl
 
-VOLUME ["/mnt/miningcore"]
+VOLUME ["/mnt/miningcore/"]
 
 ENTRYPOINT ["dotnet", "/usr/local/miningcore/Miningcore.dll"]
 CMD ["--help"]
