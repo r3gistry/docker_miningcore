@@ -15,7 +15,7 @@ $ docker build YOUR_VERSION/ --tag r3gistry/miningcore:YOUR_VERSION
 - To run the container in background:
 
 ```console
-$ docker run -v miningcore:/mnt/miningcore/ -d --name YOUR_CONTAINER_NAME -p YOUR_PORT_1:YOUR_PORT_1 -p YOUR_PORT_2-YOUR_PORT_4:YOUR_PORT_2-YOUR_PORT_4 r3gistry/miningcore -c /mnt/miningcore/config.json
+$ docker run -v miningcore:/mnt/miningcore/ -d --name YOUR_CONTAINER_NAME -p YOUR_PORT_1:YOUR_PORT_1 -p YOUR_PORT_2-YOUR_PORT_4:YOUR_PORT_2-YOUR_PORT_4 r3gistry/miningcore:YOUR_VERSION -c /mnt/miningcore/config.json
 ```
 
 - To fetch logs of a container:
