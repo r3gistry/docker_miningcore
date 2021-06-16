@@ -14,6 +14,7 @@ apk add --no-cache build-base cmake boost-dev libsodium-dev libzmq openssl-dev p
 && mkdir /usr/local/miningcore/ \
 && cd ../../ \
 && mv build/* /usr/local/miningcore/ \
+&& cd ../ \
 && rm -r * \
 && apk del build-base cmake boost-dev libsodium-dev libzmq openssl-dev pkgconfig
 
