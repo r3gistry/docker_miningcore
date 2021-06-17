@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/runtime:5.0-alpine
+FROM mcr.microsoft.com/dotnet/runtime:5.0-alpine
 
 WORKDIR /tmp/
 
@@ -19,7 +19,7 @@ apk add --no-cache build-base cmake boost-dev libsodium-dev libzmq openssl-dev p
 && apk del build-base cmake boost-dev libsodium-dev libzmq openssl-dev pkgconfig
 
 
-FROM mcr.microsoft.com/dotnet/core/runtime:5.0-alpine
+FROM mcr.microsoft.com/dotnet/runtime:5.0-alpine
 
 LABEL maintainer="R3GISTRY"
 LABEL description="Miningcore in Docker. This is a mining pool software."
