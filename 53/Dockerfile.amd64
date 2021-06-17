@@ -1,0 +1,35 @@
+FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine
+
+WORKDIR /tmp/
+
+ADD \
+https://github.com/coinfoundry/miningcore/archive/v53.tar.gz \
+.
+
+RUN \
+apk add --no-cache build-base cmake boost-dev libsodium-dev libzmq openssl-dev pkgconfig \
+&& tar -xvf v53.tar.gz \
+&& cd miningcore-53/src/Miningcore/ \
+&& dotnet publish -c Release --framework net5.0 -o ../../build/ \
+&& mkdir /usr/local/miningcore/ \
+&& cd ../../ \
+&& mv build/* /usr/local/miningcore/ \
+&& cd ../ \
+&& rm -r * \
+&& apk del build-base cmake boost-dev libsodium-dev libzmq openssl-dev pkgconfig
+
+
+FROM mcr.microsoft.com/dotnet/runtime:5.0-alpine
+
+LABEL maintainer="R3GISTRY"
+LABEL description="Miningcore in Docker. This is a mining pool software."
+
+COPY --from=0 /usr/local/miningcore/ /usr/local/miningcore/
+
+RUN \
+apk add --no-cache boost-date_time boost-system openssl
+
+VOLUME ["/mnt/miningcore/"]
+
+ENTRYPOINT ["dotnet", "/usr/local/miningcore/Miningcore.dll"]
+CMD ["--help"]
